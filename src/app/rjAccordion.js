@@ -4,61 +4,76 @@
  * @author Raja Jaganathan 
  *  
  */
- (function($) {
+(function($) {
 
-     'use strict';
+    'use strict';
 
-     function Accordion(element, options) {
-         this.$element = $(element);
-         this.options = $.extend({}, Accordion.defaults, options);
-     }
+    function Accordion(element, options) {
+        this.$element = $(element);
+        this.options = $.extend({}, Accordion.defaults, options);
+    }
 
-     Accordion.prototype.constructor = Accordion;
+    Accordion.prototype.constructor = Accordion;
 
-     Accordion.defaults = {
-         transition_delay: 300
-     };
+    Accordion.defaults = {
+        transition_delay: 300,
+        toggle: true
+    };
 
-     Accordion.prototype.init = function() {
-         var $this = this.$element;
-         var options = this.options;
+    Accordion.prototype.init = function() {
+        var $this = this.$element;
+        var options = this.options;
 
-         function closeAccordionSection() {
-             $this.find('.accordion-section-header').removeClass('active');
-             $this.find('.accordion-section-content').slideUp(options.transition_delay).removeClass('open');
-         }
+        function closeAccordionSection() {
+            $this.find('.accordion-section-header').removeClass('active');
+            $this.find('.accordion-section-content').slideUp(options.transition_delay).removeClass('open');
+        }
 
-         $this.find('.accordion-section-header').click(function(e) {             
-             var currentAttrValue = $(this).data('target');
+        function closeAccordionBy($accodionSection) {
+            $accodionSection.find('.accordion-section-header').removeClass('active');
+            $accodionSection.find('.accordion-section-content').slideUp(options.transition_delay).removeClass('open');
+        }
 
-             if ($(e.target).is('.active')) {
-                 closeAccordionSection();
-             } else {
-                 closeAccordionSection();
-                 // Add active class to section header
-                 $(this).addClass('active');
-                 // Open up the hidden content panel                 
-                 $this.find(currentAttrValue).slideDown(options.transition_delay).addClass('open');
-             }
+        function openAccordion($targetAccordion) {
+            var targetContainer = $targetAccordion.data('target');
+            $targetAccordion.addClass('active');
+            $this.find(targetContainer).slideDown(options.transition_delay).addClass('open');
+        }
 
-             e.preventDefault();
-         });
-     };
+        $this.find('.accordion-section-header').click(function(e) {
+            e.preventDefault();
 
-     var oldAccordion = $.fn.rjAccordion;
+            if (options.toggle) {
+                if ($(e.target).is('.active')) {
+                    closeAccordionSection();
+                } else {
+                    closeAccordionSection();
+                    openAccordion($(this));
+                }
+            } else {
+                if ($(e.target).is('.active')) {
+                    closeAccordionBy($(this).closest('.accordion-section'));
+                } else {
+                    openAccordion($(this));
+                }
+            }
+        });
+    };
 
-     $.fn.rjAccordion = function(options) {
-         return this.each(function() {
-             var data = new Accordion(this, options);
-             data.init();
-         });
-     };
+    var oldAccordion = $.fn.rjAccordion;
 
-     $.fn.rjAccordion.constructor = Accordion;
+    $.fn.rjAccordion = function(options) {
+        return this.each(function() {
+            var data = new Accordion(this, options);
+            data.init();
+        });
+    };
 
-     $.fn.rjAccordion.noConflict = function() {
-         $.fn.rjAccordion = oldAccordion;
-         return this;
-     };
+    $.fn.rjAccordion.constructor = Accordion;
 
- })(window.jQuery);
+    $.fn.rjAccordion.noConflict = function() {
+        $.fn.rjAccordion = oldAccordion;
+        return this;
+    };
+
+})(window.jQuery);
