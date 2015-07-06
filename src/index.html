@@ -12,8 +12,7 @@
     <script type="text/javascript">
       $(function() {       
           $(".accordion1").rjAccordion();          
-
-          $(".accordion2").rjAccordion({toggle:false});          
+          $(".accordion2").rjAccordion({toggle:false, hideArrow: true});          
       });
     </script>
 </head>
@@ -23,7 +22,7 @@
     <div class="main">
         <div class="accordion accordion1">
             <div class="accordion-section">
-                <a class="accordion-section-header" data-target="#accordion-1">Accordion #1</a>
+                <a class="accordion-section-header" data-target="#accordion-1">Accordion #1 <span class="icon icon-arrow" aria-hidden="true"></span> </a>
                 <div id="accordion-1" class="accordion-section-content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -34,7 +33,7 @@
                 </div>
             </div>
             <div class="accordion-section">
-                <a class="accordion-section-header" data-target="#accordion-2">Accordion #2</a>
+                <a class="accordion-section-header" data-target="#accordion-2">Accordion #2 <span class="icon icon-arrow" aria-hidden="true"> </a>
                 <div id="accordion-2" class="accordion-section-content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -45,7 +44,7 @@
                 </div>
             </div>
             <div class="accordion-section">
-                <a class="accordion-section-header" data-target="#accordion-3">Accordion #3</a>
+                <a class="accordion-section-header" data-target="#accordion-3">Accordion #3 <span class="icon icon-arrow" aria-hidden="true"> </a>
                 <div id="accordion-3" class="accordion-section-content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -59,7 +58,7 @@
 
          <div class="accordion accordion2">
             <div class="accordion-section">
-                <a class="accordion-section-header" data-target="#accordion1">Accordion #1</a>
+                <a class="accordion-section-header" data-target="#accordion1">Accordion #1 <span class="icon icon-arrow" aria-hidden="true"></a>
                 <div id="accordion1" class="accordion-section-content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -70,7 +69,7 @@
                 </div>
             </div>
             <div class="accordion-section">
-                <a class="accordion-section-header" data-target="#accordion2">Accordion #2</a>
+                <a class="accordion-section-header" data-target="#accordion2">Accordion #2 <span class="icon icon-arrow" aria-hidden="true"></a>
                 <div id="accordion2" class="accordion-section-content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -81,7 +80,7 @@
                 </div>
             </div>
             <div class="accordion-section">
-                <a class="accordion-section-header" data-target="#accordion3">Accordion #3</a>
+                <a class="accordion-section-header" data-target="#accordion3">Accordion #3 <span class="icon icon-arrow" aria-hidden="true"></a>
                 <div id="accordion3" class="accordion-section-content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
