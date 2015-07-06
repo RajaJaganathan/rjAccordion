@@ -17,7 +17,8 @@
 
     Accordion.defaults = {
         transition_delay: 300,
-        toggle: true
+        toggle: true,
+        hideArrow: false
     };
 
     Accordion.prototype.init = function() {
@@ -40,24 +41,38 @@
             $this.find(targetContainer).slideDown(options.transition_delay).addClass('open');
         }
 
-        $this.find('.accordion-section-header').click(function(e) {
-            e.preventDefault();
-
-            if (options.toggle) {
-                if ($(e.target).is('.active')) {
-                    closeAccordionSection();
-                } else {
-                    closeAccordionSection();
-                    openAccordion($(this));
-                }
-            } else {
-                if ($(e.target).is('.active')) {
-                    closeAccordionBy($(this).closest('.accordion-section'));
-                } else {
-                    openAccordion($(this));
-                }
+        function hideArrow() {
+            if(options.hideArrow){
+                $this.find('.accordion-section-header .icon-arrow').css({
+                    'content':'',
+                    'display':'none'
+                });
             }
-        });
+        }
+
+        function init(){
+          $this.find('.accordion-section-header').click(function(e) {
+                e.preventDefault();
+
+                if (options.toggle) {
+                    if ($(e.target).is('.active')) {
+                        closeAccordionSection();
+                    } else {
+                        closeAccordionSection();
+                        openAccordion($(this));
+                    }
+                } else {
+                    if ($(e.target).is('.active')) {
+                        closeAccordionBy($(this).closest('.accordion-section'));
+                    } else {
+                        openAccordion($(this));
+                    }
+                }
+            });  
+        }
+
+        hideArrow();
+        init();        
     };
 
     var oldAccordion = $.fn.rjAccordion;

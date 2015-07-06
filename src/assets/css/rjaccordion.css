@@ -15,15 +15,15 @@
         margin: 20px;
         width: 60%;
     }
-        
+    
     .accordion-section-header {
         width: 100%;
         padding: 15px;
         display: inline-block;
         border-bottom: 1px solid #A4A4A4;
         background: #D8D8D8;
-        transition: all linear 0.15s;        
-        font-size: 1.200em;        
+        transition: all linear 0.15s;
+        font-size: 1.200em;
         color: #fff;
     }
     
@@ -36,8 +36,24 @@
     .accordion-section:last-child .accordion-section-header {
         border-bottom: none;
     }
-        
+    
     .accordion-section-content {
         padding: 15px;
         display: none;
+    }
+    
+    a.accordion-section-header .icon-arrow:after {
+        content: "\003e";
+        float: right;
+        -webkit-transition: rotate 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    
+    a.accordion-section-header.active .icon-arrow:after {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
     }
