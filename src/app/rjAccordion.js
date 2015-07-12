@@ -18,7 +18,7 @@
     Accordion.defaults = {
         transition_delay: 300,
         toggle: true,
-        hideArrow: false
+        showDirectionIcon: true
     };
 
     Accordion.prototype.init = function() {
@@ -41,8 +41,8 @@
             $this.find(targetContainer).slideDown(options.transition_delay).addClass('open');
         }
 
-        function hideArrow() {
-            if(options.hideArrow){
+        function enableDirectionIconByOption() {
+            if(!options.showDirectionIcon){
                 $this.find('.accordion-section-header .icon-arrow').css({
                     'content':'',
                     'display':'none'
@@ -71,7 +71,7 @@
             });  
         }
 
-        hideArrow();
+        enableDirectionIconByOption();
         init();        
     };
 
