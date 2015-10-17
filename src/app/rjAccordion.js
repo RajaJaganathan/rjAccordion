@@ -55,7 +55,7 @@
                 e.preventDefault();
 
                 if (options.toggle) {
-                    if ($(e.target).is('.active')) {
+                    if ($(this).is('.active')) {
                         closeAccordionSection();
                     } else {
                         closeAccordionSection();

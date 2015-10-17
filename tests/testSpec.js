@@ -11,4 +11,8 @@ describe('rjAccordion Test Suite', function () {
 	it('should have rjAccordion defaults for options to override', function() {
 		expect($.fn.rjAccordion.constructor.defaults).toBeDefined();
 	});
-})
+
+	it('should have rjAccordion defaults for options to override', function() {
+		expect($.fn.rjAccordion.constructor.defaults).toBeDefined();
+	});
+});
